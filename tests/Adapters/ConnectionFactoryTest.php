@@ -49,6 +49,7 @@ class ConnectionFactoryTest extends AbstractTestCase
     public function createDataProvider()
     {
         $customAdapter = Mockery::mock(AbstractAdapter::class)->mockery_getName();
+
         return [
             [$customAdapter, $customAdapter],
             ['awss3', AwsS3Connector::class],
