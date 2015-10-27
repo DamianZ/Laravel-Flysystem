@@ -163,6 +163,24 @@ App::make('Foo')->bar();
 
 For more information on how to use the `\League\Flysystem\Filesystem` class we are calling behind the scenes here, check out the docs at https://github.com/thephpleague/flysystem#general-usage, and the manager class at https://github.com/GrahamCampbell/Laravel-Manager#usage.
 
+##### Custom Adapter
+
+You can provide custom adapter for FlySystem just specify class name in 'driver' configuration.
+```php
+'connections' => [
+        'customAdapter' => [
+            'driver' => CustomAdapter::class,
+        ],
+    ],
+```
+Your custom adapter need to extend ```GrahamCampbell\Manager\ConnectorInterface```
+```php
+class CustomAdapter extends GrahamCampbell\Manager\ConnectorInterface {
+...
+}
+```
+
+
 ##### Further Information
 
 There are other classes in this package that are not documented here. This is because they are not intended for public use and are used internally by this package.
