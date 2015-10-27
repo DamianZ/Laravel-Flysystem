@@ -173,7 +173,7 @@ You can provide custom adapter for FlySystem just specify class name in 'driver'
         ],
     ],
 ```
-Your custom adapter need to extend ```GrahamCampbell\Manager\ConnectorInterface```
+Your custom adapter need to extend ```\GrahamCampbell\Manager\ConnectorInterface```
 ```php
 class CustomAdapter extends GrahamCampbell\Manager\ConnectorInterface {
 ...
