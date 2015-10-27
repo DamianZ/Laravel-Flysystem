@@ -165,7 +165,7 @@ For more information on how to use the `\League\Flysystem\Filesystem` class we a
 
 ##### Custom Adapter
 
-You can provide custom adapter for FlySystem just specify class name in 'driver' configuration.
+If you want to provide a custom adapter for FlySystem, just specify the class name on the 'driver' key in configuration.
 ```php
 'connections' => [
         'customAdapter' => [
@@ -173,9 +173,9 @@ You can provide custom adapter for FlySystem just specify class name in 'driver'
         ],
     ],
 ```
-Your custom adapter need to extend ```\GrahamCampbell\Manager\ConnectorInterface```
+Your custom adapter has to implement ```\GrahamCampbell\Manager\ConnectorInterface```
 ```php
-class CustomAdapter extends GrahamCampbell\Manager\ConnectorInterface {
+class CustomAdapter implements GrahamCampbell\Manager\ConnectorInterface {
 ...
 }
 ```

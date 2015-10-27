@@ -46,9 +46,6 @@ class ConnectionFactory
         if (!isset($config['driver'])) {
             throw new InvalidArgumentException('A driver must be specified.');
         }
-        if (class_exists($config['driver'])) {
-            return new $config['driver']();
-        }
 
         switch ($config['driver']) {
             case 'awss3':
@@ -75,6 +72,13 @@ class ConnectionFactory
                 return new WebDavConnector();
             case 'zip':
                 return new ZipConnector();
+        }
+
+        if (class_exists($config['driver'])) {
+            $adapter = new $config['driver']();
+            if ($adapter instanceof ConnectorInterface) {
+                return $adapter;
+            }
         }
 
         throw new InvalidArgumentException("Unsupported driver [{$config['driver']}].");
