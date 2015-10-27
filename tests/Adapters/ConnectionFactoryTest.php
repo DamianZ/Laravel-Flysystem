@@ -100,6 +100,17 @@ class ConnectionFactoryTest extends AbstractTestCase
         $factory->createConnector(['driver' => 'unsupported']);
     }
 
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Unsupported driver [DateTime].
+     */
+    public function testCustomInvalidDriverConnector()
+    {
+        $factory = $this->getConnectionFactory();
+
+        $factory->createConnector(['driver' => \DateTime::class]);
+    }
+
     protected function getConnectionFactory()
     {
         return new ConnectionFactory();
