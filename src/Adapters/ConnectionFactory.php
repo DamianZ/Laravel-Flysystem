@@ -76,7 +76,7 @@ class ConnectionFactory
 
         if (class_exists($config['driver'])) {
             $adapter = new $config['driver']();
-            if ($adapter instanceof  \GrahamCampbell\Manager\ConnectorInterface) {
+            if ($adapter instanceof \GrahamCampbell\Manager\ConnectorInterface) {
                 return $adapter;
             }
         }
